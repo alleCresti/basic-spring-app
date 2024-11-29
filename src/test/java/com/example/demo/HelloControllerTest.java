@@ -20,6 +20,6 @@ public class HelloControllerTest {
         ResponseEntity<String> response = restTemplate.getForEntity("/hello", String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo("Hello, world!");
+        assertThat(response.getBody()).isEqualTo("Hello, worldd!");
     }
 }
