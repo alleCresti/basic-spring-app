@@ -19,5 +19,21 @@ pipeline {
                 }
             }
         }
+
+        stage('Publish') {
+            when{
+                branch 'main'
+            }
+
+            steps {
+                sh 'mvn -B package -DskipTests'
+            }
+
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
+                }
+            }
+        }
     }
 }
